@@ -32,5 +32,12 @@ namespace BarkodStokTakipForm
             MusteriEkleFrm musteriEkleFrm = new MusteriEkleFrm();
             musteriEkleFrm.ShowDialog();
         }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            MüsteriListelefrm müsteriListelefrm = new MüsteriListelefrm();
+            müsteriListelefrm.Show();
+            this.Hide();
+        }
     }
 }

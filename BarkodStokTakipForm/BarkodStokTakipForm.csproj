@@ -58,6 +58,12 @@
     <Compile Include="MusteriEkleFrm.Designer.cs">
       <DependentUpon>MusteriEkleFrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="MüsteriListelefrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MüsteriListelefrm.Designer.cs">
+      <DependentUpon>MüsteriListelefrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
@@ -65,6 +71,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MusteriEkleFrm.resx">
       <DependentUpon>MusteriEkleFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MüsteriListelefrm.resx">
+      <DependentUpon>MüsteriListelefrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -42,32 +42,52 @@ namespace BarkodStokTakipForm
             return sonuc;
 
         }
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)// müşteri ekleme
         {
-            
-
+            if (VarMi(txtTc.Text) != 0)
+            {
+                MessageBox.Show("Bu TC Numara ile daha önce kayıt yapılmış");
+            }
+            else
+            {
                 baglanti.Open();
-                SqlCommand komut = new SqlCommand("insert into musteri(tc,adsoyad,telefon,email,adres) values(@tc,@adsoyad,@telefon,@email,@adres) ", baglanti);
-                komut.Parameters.AddWithValue("@tc", txtEmail.Text);
-                komut.Parameters.AddWithValue("@adsoyad", txtTelefon.Text);
-                komut.Parameters.AddWithValue("@telefon", txtAdSoyad.Text);
-                komut.Parameters.AddWithValue("@email", txtTc.Text);
-                komut.Parameters.AddWithValue("@adres", txtAdres.Text);
-                komut.ExecuteNonQuery();
-                baglanti.Close();
-                MessageBox.Show("Kayıt İşlemi Yapıldı");
-
-                foreach (Control item in this.Controls)
+                if (txtTc.Text != "" & txtAdSoyad.Text != "" & txtTelefon.Text != "" & txtEmail.Text != "" & txtAdres.Text != "")
                 {
+                    SqlCommand komut = new SqlCommand("insert into musteri(tc,adsoyad,telefon,email,adres) values(@tc,@adsoyad,@telefon,@email,@adres) ", baglanti);
+                    komut.Parameters.AddWithValue("@tc", txtTc.Text);
+                    komut.Parameters.AddWithValue("@adsoyad", txtAdSoyad.Text);
+                    komut.Parameters.AddWithValue("@telefon", txtTelefon.Text);
+                    komut.Parameters.AddWithValue("@email", txtEmail.Text);
+                    komut.Parameters.AddWithValue("@adres", txtAdres.Text);
+                    komut.ExecuteNonQuery();
+                   
+                    MessageBox.Show("Kayıt İşlemi Yapıldı");
 
-                    if (item is TextBox)
+                    foreach (Control item in this.Controls)
                     {
-                        item.Text = "";
+
+                        if (item is TextBox)
+                        {
+                            item.Text = "";
+                        }
+
+
+
                     }
 
 
-
                 }
+
+                else
+                {
+                    MessageBox.Show("eksik bilgi girdiniz.Boş bırakılan yerleri doldurunuz");
+                }
+                baglanti.Close();
+
+            }
+
+            
+               
 
             
 
