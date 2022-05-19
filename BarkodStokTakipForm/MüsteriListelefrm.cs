@@ -105,5 +105,12 @@ namespace BarkodStokTakipForm
 
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            AnaSayfafrm anaSayfafrm = new AnaSayfafrm();
+            anaSayfafrm.Show();
+            this.Close();
+        }
     }
 }

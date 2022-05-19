@@ -1,7 +1,7 @@
 ﻿
 namespace BarkodStokTakipForm
 {
-    partial class Form1
+    partial class AnaSayfafrm
     {
         /// <summary>
         ///Gerekli tasarımcı değişkeni.
@@ -60,6 +60,8 @@ namespace BarkodStokTakipForm
             this.button7 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -295,6 +297,8 @@ namespace BarkodStokTakipForm
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.button2);
+            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.button9);
             this.panel1.Controls.Add(this.button8);
             this.panel1.Controls.Add(this.button7);
@@ -303,7 +307,7 @@ namespace BarkodStokTakipForm
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(852, 60);
+            this.panel1.Size = new System.Drawing.Size(916, 60);
             this.panel1.TabIndex = 10;
             // 
             // button9
@@ -332,6 +336,7 @@ namespace BarkodStokTakipForm
             this.button7.TabIndex = 2;
             this.button7.Text = "ÜRÜN EKLEME";
             this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // button6
             // 
@@ -353,12 +358,32 @@ namespace BarkodStokTakipForm
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
-            // Form1
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(730, 12);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(74, 40);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "KATEGORİ";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(810, 12);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(70, 40);
+            this.button2.TabIndex = 6;
+            this.button2.Text = "MARKA ";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // AnaSayfafrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(852, 523);
+            this.ClientSize = new System.Drawing.Size(916, 523);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnEkle);
             this.Controls.Add(this.lblgeneltoplam);
@@ -369,7 +394,7 @@ namespace BarkodStokTakipForm
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dataGridView1);
-            this.Name = "Form1";
+            this.Name = "AnaSayfafrm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -416,6 +441,8 @@ namespace BarkodStokTakipForm
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
     }
 }
 

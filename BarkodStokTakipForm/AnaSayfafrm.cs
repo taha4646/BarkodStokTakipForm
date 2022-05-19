@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace BarkodStokTakipForm
 {
-    public partial class Form1 : Form
+    public partial class AnaSayfafrm : Form
     {
-        public Form1()
+        public AnaSayfafrm()
         {
             InitializeComponent();
         }
@@ -38,6 +38,24 @@ namespace BarkodStokTakipForm
             MüsteriListelefrm müsteriListelefrm = new MüsteriListelefrm();
             müsteriListelefrm.Show();
             this.Hide();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            UrunEklefrm urunEklefrm = new UrunEklefrm();
+            urunEklefrm.ShowDialog();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Kategorifrm kategorifrm = new Kategorifrm();
+            kategorifrm.ShowDialog();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Markafrm markafrm = new Markafrm();
+            markafrm.ShowDialog();
         }
     }
 }
