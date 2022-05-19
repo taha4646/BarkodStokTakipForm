@@ -137,6 +137,7 @@ namespace BarkodStokTakipForm
             this.txtTc.Name = "txtTc";
             this.txtTc.Size = new System.Drawing.Size(111, 20);
             this.txtTc.TabIndex = 13;
+            this.txtTc.TextChanged += new System.EventHandler(this.txtTc_TextChanged);
             // 
             // btnGuncelle
             // 

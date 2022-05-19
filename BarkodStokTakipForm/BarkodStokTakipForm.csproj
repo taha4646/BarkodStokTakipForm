@@ -78,11 +78,23 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SatisListelefrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SatisListelefrm.Designer.cs">
+      <DependentUpon>SatisListelefrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UrunEklefrm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UrunEklefrm.Designer.cs">
       <DependentUpon>UrunEklefrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UrunListelefrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UrunListelefrm.Designer.cs">
+      <DependentUpon>UrunListelefrm.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="AnaSayfafrm.resx">
       <DependentUpon>AnaSayfafrm.cs</DependentUpon>
@@ -108,8 +120,14 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="SatisListelefrm.resx">
+      <DependentUpon>SatisListelefrm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UrunEklefrm.resx">
       <DependentUpon>UrunEklefrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UrunListelefrm.resx">
+      <DependentUpon>UrunListelefrm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

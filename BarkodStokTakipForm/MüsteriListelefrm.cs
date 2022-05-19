@@ -112,5 +112,10 @@ namespace BarkodStokTakipForm
             anaSayfafrm.Show();
             this.Close();
         }
+
+        private void txtTc_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

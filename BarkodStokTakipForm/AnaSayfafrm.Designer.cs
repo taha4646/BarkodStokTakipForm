@@ -55,13 +55,13 @@ namespace BarkodStokTakipForm
             this.lblgeneltoplam = new System.Windows.Forms.Label();
             this.btnEkle = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -219,6 +219,7 @@ namespace BarkodStokTakipForm
             this.txtSatisFiyati.Name = "txtSatisFiyati";
             this.txtSatisFiyati.Size = new System.Drawing.Size(125, 20);
             this.txtSatisFiyati.TabIndex = 3;
+            this.txtSatisFiyati.TextChanged += new System.EventHandler(this.txtSatisFiyati_TextChanged);
             // 
             // txtMiktar
             // 
@@ -226,6 +227,9 @@ namespace BarkodStokTakipForm
             this.txtMiktar.Name = "txtMiktar";
             this.txtMiktar.Size = new System.Drawing.Size(125, 20);
             this.txtMiktar.TabIndex = 2;
+            this.txtMiktar.Text = "1";
+            this.txtMiktar.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtMiktar.TextChanged += new System.EventHandler(this.txtMiktar_TextChanged);
             // 
             // txtUrunAdi
             // 
@@ -240,6 +244,7 @@ namespace BarkodStokTakipForm
             this.txtBarkodNo.Name = "txtBarkodNo";
             this.txtBarkodNo.Size = new System.Drawing.Size(125, 20);
             this.txtBarkodNo.TabIndex = 0;
+            this.txtBarkodNo.TextChanged += new System.EventHandler(this.txtBarkodNo_TextChanged);
             // 
             // btnSil
             // 
@@ -249,6 +254,7 @@ namespace BarkodStokTakipForm
             this.btnSil.TabIndex = 4;
             this.btnSil.Text = "SİL";
             this.btnSil.UseVisualStyleBackColor = true;
+            this.btnSil.Click += new System.EventHandler(this.btnSil_Click);
             // 
             // btnSatisIptal
             // 
@@ -258,6 +264,7 @@ namespace BarkodStokTakipForm
             this.btnSatisIptal.TabIndex = 5;
             this.btnSatisIptal.Text = "SATIŞ İPTAL";
             this.btnSatisIptal.UseVisualStyleBackColor = true;
+            this.btnSatisIptal.Click += new System.EventHandler(this.btnSatisIptal_Click);
             // 
             // btnSatisYap
             // 
@@ -267,6 +274,7 @@ namespace BarkodStokTakipForm
             this.btnSatisYap.TabIndex = 6;
             this.btnSatisYap.Text = "SATIŞ YAP";
             this.btnSatisYap.UseVisualStyleBackColor = true;
+            this.btnSatisYap.Click += new System.EventHandler(this.btnSatisYap_Click);
             // 
             // label9
             // 
@@ -294,6 +302,7 @@ namespace BarkodStokTakipForm
             this.btnEkle.TabIndex = 9;
             this.btnEkle.Text = "EKLE";
             this.btnEkle.UseVisualStyleBackColor = true;
+            this.btnEkle.Click += new System.EventHandler(this.btnEkle_Click);
             // 
             // panel1
             // 
@@ -310,6 +319,26 @@ namespace BarkodStokTakipForm
             this.panel1.Size = new System.Drawing.Size(916, 60);
             this.panel1.TabIndex = 10;
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(810, 12);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(70, 40);
+            this.button2.TabIndex = 6;
+            this.button2.Text = "MARKA ";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(730, 12);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(74, 40);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "KATEGORİ";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // button9
             // 
             this.button9.Location = new System.Drawing.Point(553, 12);
@@ -318,6 +347,7 @@ namespace BarkodStokTakipForm
             this.button9.TabIndex = 4;
             this.button9.Text = "SATIŞLARI LİSTELEME";
             this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
             // button8
             // 
@@ -327,6 +357,7 @@ namespace BarkodStokTakipForm
             this.button8.TabIndex = 3;
             this.button8.Text = "ÜRÜN LİSTELEME";
             this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // button7
             // 
@@ -358,28 +389,9 @@ namespace BarkodStokTakipForm
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(730, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(74, 40);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "KATEGORİ";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(810, 12);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(70, 40);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "MARKA ";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
             // AnaSayfafrm
             // 
+            this.AcceptButton = this.btnEkle;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
@@ -397,6 +409,7 @@ namespace BarkodStokTakipForm
             this.Name = "AnaSayfafrm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.AnaSayfafrm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

@@ -47,6 +47,7 @@ namespace BarkodStokTakipForm
             this.txtBarkodNo = new System.Windows.Forms.TextBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.lblMiktari = new System.Windows.Forms.Label();
             this.btnVarolanaEkle = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -62,7 +63,6 @@ namespace BarkodStokTakipForm
             this.AlisFiyatitxt = new System.Windows.Forms.TextBox();
             this.Miktaritxt = new System.Windows.Forms.TextBox();
             this.BarkodNotxt = new System.Windows.Forms.TextBox();
-            this.lblMiktari = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -178,6 +178,7 @@ namespace BarkodStokTakipForm
             this.comboMarka.Name = "comboMarka";
             this.comboMarka.Size = new System.Drawing.Size(121, 21);
             this.comboMarka.TabIndex = 6;
+            this.comboMarka.SelectedIndexChanged += new System.EventHandler(this.comboMarka_SelectedIndexChanged);
             // 
             // comboKategori
             // 
@@ -241,6 +242,14 @@ namespace BarkodStokTakipForm
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Varolan Ürün";
+            // 
+            // lblMiktari
+            // 
+            this.lblMiktari.AutoSize = true;
+            this.lblMiktari.Location = new System.Drawing.Point(13, 263);
+            this.lblMiktari.Name = "lblMiktari";
+            this.lblMiktari.Size = new System.Drawing.Size(0, 13);
+            this.lblMiktari.TabIndex = 22;
             // 
             // btnVarolanaEkle
             // 
@@ -366,14 +375,6 @@ namespace BarkodStokTakipForm
             this.BarkodNotxt.Size = new System.Drawing.Size(121, 20);
             this.BarkodNotxt.TabIndex = 5;
             this.BarkodNotxt.TextChanged += new System.EventHandler(this.BarkodNotxt_TextChanged);
-            // 
-            // lblMiktari
-            // 
-            this.lblMiktari.AutoSize = true;
-            this.lblMiktari.Location = new System.Drawing.Point(13, 263);
-            this.lblMiktari.Name = "lblMiktari";
-            this.lblMiktari.Size = new System.Drawing.Size(0, 13);
-            this.lblMiktari.TabIndex = 22;
             // 
             // UrunEklefrm
             // 

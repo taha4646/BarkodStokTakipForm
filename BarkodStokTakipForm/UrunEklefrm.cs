@@ -32,7 +32,7 @@ namespace BarkodStokTakipForm
                     durum = false;
                 }
             }
-
+            baglanti.Close();
 
 
         }
@@ -49,6 +49,7 @@ namespace BarkodStokTakipForm
         }
         private void UrunEklefrm_Load(object sender, EventArgs e)
         {
+            kategorigetir();
             kategorigetir();
         }
 
@@ -162,6 +163,11 @@ namespace BarkodStokTakipForm
                 }
             }
             MessageBox.Show("Varolan Ürüne ekleme yapıldı");
+        }
+
+        private void comboMarka_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
