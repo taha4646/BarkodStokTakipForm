@@ -62,6 +62,7 @@ namespace BarkodStokTakipForm
             this.button7 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
+            this.btnBarkodAna = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -389,6 +390,16 @@ namespace BarkodStokTakipForm
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
+            // btnBarkodAna
+            // 
+            this.btnBarkodAna.Location = new System.Drawing.Point(406, 66);
+            this.btnBarkodAna.Name = "btnBarkodAna";
+            this.btnBarkodAna.Size = new System.Drawing.Size(158, 43);
+            this.btnBarkodAna.TabIndex = 11;
+            this.btnBarkodAna.Text = "BARKODLA İŞLEM";
+            this.btnBarkodAna.UseVisualStyleBackColor = true;
+            this.btnBarkodAna.Click += new System.EventHandler(this.btnBarkodAna_Click);
+            // 
             // AnaSayfafrm
             // 
             this.AcceptButton = this.btnEkle;
@@ -396,6 +407,7 @@ namespace BarkodStokTakipForm
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(916, 523);
+            this.Controls.Add(this.btnBarkodAna);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnEkle);
             this.Controls.Add(this.lblgeneltoplam);
@@ -456,6 +468,7 @@ namespace BarkodStokTakipForm
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnBarkodAna;
     }
 }
 

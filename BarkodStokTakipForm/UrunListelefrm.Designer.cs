@@ -173,6 +173,7 @@ namespace BarkodStokTakipForm
             this.BarkodNotxt.Name = "BarkodNotxt";
             this.BarkodNotxt.Size = new System.Drawing.Size(121, 20);
             this.BarkodNotxt.TabIndex = 22;
+            this.BarkodNotxt.TextChanged += new System.EventHandler(this.BarkodNotxt_TextChanged);
             // 
             // btnSil
             // 

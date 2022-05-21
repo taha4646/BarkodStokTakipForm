@@ -84,7 +84,7 @@ namespace BarkodStokTakipForm
             this.groupBox1.Controls.Add(this.txtAlisFiyati);
             this.groupBox1.Controls.Add(this.txtMiktari);
             this.groupBox1.Controls.Add(this.txtBarkodNo);
-            this.groupBox1.Location = new System.Drawing.Point(569, 134);
+            this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(197, 296);
             this.groupBox1.TabIndex = 0;
@@ -236,12 +236,13 @@ namespace BarkodStokTakipForm
             this.groupBox2.Controls.Add(this.AlisFiyatitxt);
             this.groupBox2.Controls.Add(this.Miktaritxt);
             this.groupBox2.Controls.Add(this.BarkodNotxt);
-            this.groupBox2.Location = new System.Drawing.Point(766, 134);
+            this.groupBox2.Location = new System.Drawing.Point(215, 12);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(200, 296);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Varolan Ürün";
+            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
             // lblMiktari
             // 
@@ -381,7 +382,7 @@ namespace BarkodStokTakipForm
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(1012, 613);
+            this.ClientSize = new System.Drawing.Size(446, 328);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "UrunEklefrm";

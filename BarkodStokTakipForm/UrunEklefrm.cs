@@ -36,7 +36,7 @@ namespace BarkodStokTakipForm
 
 
         }
-        private void kategorigetir()
+        public void kategorigetir()
         {
             baglanti.Open();
             SqlCommand komut = new SqlCommand("select *from kategoribilgileri", baglanti);
@@ -58,7 +58,7 @@ namespace BarkodStokTakipForm
 
         }
 
-        private void comboKategori_SelectedIndexChanged(object sender, EventArgs e)
+        public void comboKategori_SelectedIndexChanged(object sender, EventArgs e)
         {
             comboMarka.Items.Clear();
             comboMarka.Text = "";
@@ -74,44 +74,52 @@ namespace BarkodStokTakipForm
 
         private void btnYeniEkle_Click(object sender, EventArgs e)
         {
-            barkodengelle();
-            if (durum==true)
+            if (txtBarkodNo.Text=="")
             {
-
-                baglanti.Open();
-                SqlCommand komut = new SqlCommand("insert into urun(barkodno,kategori,marka,urunadi,miktar,alisfiyati,satisfiyati,tarih) values(@barkodno,@kategori,@marka,@urunadi,@miktar,@alisfiyati,@satisfiyati,@tarih)", baglanti);
-                komut.Parameters.AddWithValue("@barkodno", txtBarkodNo.Text);
-                komut.Parameters.AddWithValue("@kategori", comboKategori.Text);
-                komut.Parameters.AddWithValue("@marka", comboMarka.Text);
-                komut.Parameters.AddWithValue("@urunadi", txtUrunadi.Text);
-                komut.Parameters.AddWithValue("@miktar", int.Parse(txtMiktari.Text));
-                komut.Parameters.AddWithValue("@alisfiyati", double.Parse(txtAlisFiyati.Text));
-                komut.Parameters.AddWithValue("@satisfiyati", double.Parse(txtSatisFiyati.Text));
-                komut.Parameters.AddWithValue("@tarih", DateTime.Now.ToString());
-                komut.ExecuteNonQuery();
-                baglanti.Close();
-                comboMarka.Items.Clear();
-                MessageBox.Show("Ürün eklendi");
-
+                MessageBox.Show("Barkod numarası girmelisiniz");
             }
             else
             {
-                MessageBox.Show("böyle bir barkod kaydı vardır");
-            }
-            
-            foreach (Control item in groupBox1.Controls)
-            {
-                if (item is TextBox)
+                barkodengelle();
+                if (durum == true)
                 {
-                    item.Text = "";
+
+                    baglanti.Open();
+                    SqlCommand komut = new SqlCommand("insert into urun(barkodno,kategori,marka,urunadi,miktar,alisfiyati,satisfiyati,tarih) values(@barkodno,@kategori,@marka,@urunadi,@miktar,@alisfiyati,@satisfiyati,@tarih)", baglanti);
+                    komut.Parameters.AddWithValue("@barkodno", txtBarkodNo.Text);
+                    komut.Parameters.AddWithValue("@kategori", comboKategori.Text);
+                    komut.Parameters.AddWithValue("@marka", comboMarka.Text);
+                    komut.Parameters.AddWithValue("@urunadi", txtUrunadi.Text);
+                    komut.Parameters.AddWithValue("@miktar", int.Parse(txtMiktari.Text));
+                    komut.Parameters.AddWithValue("@alisfiyati", double.Parse(txtAlisFiyati.Text));
+                    komut.Parameters.AddWithValue("@satisfiyati", double.Parse(txtSatisFiyati.Text));
+                    komut.Parameters.AddWithValue("@tarih", DateTime.Now.ToString());
+                    komut.ExecuteNonQuery();
+                    baglanti.Close();
+                    comboMarka.Items.Clear();
+                    MessageBox.Show("Ürün eklendi");
+
                 }
-                if (item is ComboBox)
+                else
                 {
-                    item.Text = "";
+                    MessageBox.Show("böyle bir barkod kaydı vardır");
                 }
 
+                foreach (Control item in groupBox1.Controls)
+                {
+                    if (item is TextBox)
+                    {
+                        item.Text = "";
+                    }
+                    if (item is ComboBox)
+                    {
+                        item.Text = "";
+                    }
+
+                }
             }
         }
+            
 
         private void BarkodNotxt_TextChanged(object sender, EventArgs e)
         {
@@ -145,27 +153,40 @@ namespace BarkodStokTakipForm
 
         private void btnVarolanaEkle_Click(object sender, EventArgs e)
         {
-            baglanti.Open();
-            SqlCommand komut = new SqlCommand("update urun set miktar=miktar+'"+Miktaritxt.Text+"' where barkodno='"+BarkodNotxt.Text+"' ",baglanti);
-            komut.ExecuteNonQuery();
-            baglanti.Close();
-            foreach (Control item in groupBox2.Controls)
+            if (BarkodNotxt.Text=="")
             {
-                if (item is TextBox)
-                {
-                    item.Text = "";
-
-                }
-                if (item is ComboBox)
-                {
-                    item.Text = "";
-
-                }
+                MessageBox.Show("Barkod numarası girmelisiniz");
             }
-            MessageBox.Show("Varolan Ürüne ekleme yapıldı");
+            else
+            {
+                baglanti.Open();
+                SqlCommand komut = new SqlCommand("update urun set miktar=miktar+'" + Miktaritxt.Text + "' where barkodno='" + BarkodNotxt.Text + "' ", baglanti);
+                komut.ExecuteNonQuery();
+                baglanti.Close();
+                foreach (Control item in groupBox2.Controls)
+                {
+                    if (item is TextBox)
+                    {
+                        item.Text = "";
+
+                    }
+                    if (item is ComboBox)
+                    {
+                        item.Text = "";
+
+                    }
+                }
+                MessageBox.Show("Varolan Ürüne ekleme yapıldı");
+            }
         }
+            
 
         private void comboMarka_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
         {
 
         }

@@ -290,34 +290,47 @@ namespace BarkodStokTakipForm
 
         private void btnSatisYap_Click(object sender, EventArgs e)
         {
+           
             
-            for (int i = 0; i <dataGridView1.Rows.Count-1; i++)
-            {
-                baglanti.Open();
-                SqlCommand komut = new SqlCommand("insert into satis(tc,adsoyad,telefon,barkodno,urunadi,miktar,satisfiyati,toplamfiyati,tarih) values(@tc,@adsoyad,@telefon,@barkodno,@urunadi,@miktar,@satisfiyati,@toplamfiyati,@tarih) ", baglanti);
-                komut.Parameters.AddWithValue("@tc", txtTc.Text);
-                komut.Parameters.AddWithValue("@adsoyad", txtAdSoyad.Text);
-                komut.Parameters.AddWithValue("@telefon", txtTelefon.Text);
-                komut.Parameters.AddWithValue("@barkodno", dataGridView1.Rows[i].Cells["barkodno"].Value.ToString());
-                komut.Parameters.AddWithValue("@urunadi", dataGridView1.Rows[i].Cells["urunadi"].Value.ToString());
-                komut.Parameters.AddWithValue("@miktar", int.Parse(dataGridView1.Rows[i].Cells["miktar"].Value.ToString()));
-                komut.Parameters.AddWithValue("@satisfiyati", double.Parse(dataGridView1.Rows[i].Cells["satisfiyati"].Value.ToString()));
-                komut.Parameters.AddWithValue("@toplamfiyati", double.Parse(dataGridView1.Rows[i].Cells["toplamfiyati"].Value.ToString()));
-                komut.Parameters.AddWithValue("@tarih", DateTime.Now.ToString());
-                komut.ExecuteNonQuery();
-                
-                SqlCommand komut2 = new SqlCommand("update urun set miktar=miktar-'" + int.Parse(dataGridView1.Rows[i].Cells["miktar"].Value.ToString()) + "' where barkodno='" + dataGridView1.Rows[i].Cells["barkodno"].Value.ToString() + "' ", baglanti);
-                komut2.ExecuteNonQuery();
-                baglanti.Close();
+            
+                for (int i = 0; i < dataGridView1.Rows.Count - 1; i++)
+                {
+                    baglanti.Open();
+                    SqlCommand komut = new SqlCommand("insert into satis(tc,adsoyad,telefon,barkodno,urunadi,miktar,satisfiyati,toplamfiyati,tarih) values(@tc,@adsoyad,@telefon,@barkodno,@urunadi,@miktar,@satisfiyati,@toplamfiyati,@tarih) ", baglanti);
+                    komut.Parameters.AddWithValue("@tc", txtTc.Text);
+                    komut.Parameters.AddWithValue("@adsoyad", txtAdSoyad.Text);
+                    komut.Parameters.AddWithValue("@telefon", txtTelefon.Text);
+                    komut.Parameters.AddWithValue("@barkodno", dataGridView1.Rows[i].Cells["barkodno"].Value.ToString());
+                    komut.Parameters.AddWithValue("@urunadi", dataGridView1.Rows[i].Cells["urunadi"].Value.ToString());
+                    komut.Parameters.AddWithValue("@miktar", int.Parse(dataGridView1.Rows[i].Cells["miktar"].Value.ToString()));
+                    komut.Parameters.AddWithValue("@satisfiyati", double.Parse(dataGridView1.Rows[i].Cells["satisfiyati"].Value.ToString()));
+                    komut.Parameters.AddWithValue("@toplamfiyati", double.Parse(dataGridView1.Rows[i].Cells["toplamfiyati"].Value.ToString()));
+                    komut.Parameters.AddWithValue("@tarih", DateTime.Now.ToString());
+                    komut.ExecuteNonQuery();
 
-            }
+                    SqlCommand komut2 = new SqlCommand("update urun set miktar=miktar-'" + int.Parse(dataGridView1.Rows[i].Cells["miktar"].Value.ToString()) + "' where barkodno='" + dataGridView1.Rows[i].Cells["barkodno"].Value.ToString() + "' ", baglanti);
+                    komut2.ExecuteNonQuery();
+                    baglanti.Close();
+
+                }
+
+
+
             baglanti.Open();
+           
             SqlCommand komut3 = new SqlCommand("delete from sepet", baglanti);
             komut3.ExecuteNonQuery();
             baglanti.Close();
             ds.Tables["sepet"].Clear();
             sepetlistele();
             hesapla();
+        }
+
+        private void btnBarkodAna_Click(object sender, EventArgs e)
+        {
+            BarkodAnasayfafrm barkodAnasayfafrm = new BarkodAnasayfafrm();
+            barkodAnasayfafrm.ShowDialog();
+            
         }
     }
 }

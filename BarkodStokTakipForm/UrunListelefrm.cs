@@ -159,5 +159,10 @@ namespace BarkodStokTakipForm
             dataGridView1.DataSource = tablo;
             baglanti.Close();
         }
+
+        private void BarkodNotxt_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
