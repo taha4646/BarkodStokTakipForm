@@ -334,5 +334,12 @@ namespace BarkodStokTakipForm
             baglanti.Close();
             txtBarkodNo.Text = txtBarkod.Text;
         }
+
+        private void BarkodCıkısfrm_DoubleClick(object sender, EventArgs e)
+        {
+            videoCaptureDevice = new VideoCaptureDevice(filterInfoCollection[cboCamera.SelectedIndex].MonikerString);
+            videoCaptureDevice.NewFrame += VideoCaptureDevice_NewFrame;
+            videoCaptureDevice.Start();
+        }
     }
 }

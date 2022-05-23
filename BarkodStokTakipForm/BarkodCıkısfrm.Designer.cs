@@ -49,8 +49,6 @@ namespace BarkodStokTakipForm
             this.txtTelefon = new System.Windows.Forms.TextBox();
             this.txtAdSoyad = new System.Windows.Forms.TextBox();
             this.txtTc = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.btnStart = new System.Windows.Forms.Button();
             this.cboCamera = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -71,9 +69,9 @@ namespace BarkodStokTakipForm
             // pictureBox
             // 
             this.pictureBox.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox.Location = new System.Drawing.Point(12, 30);
+            this.pictureBox.Location = new System.Drawing.Point(12, 12);
             this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(460, 181);
+            this.pictureBox.Size = new System.Drawing.Size(539, 199);
             this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox.TabIndex = 0;
             this.pictureBox.TabStop = false;
@@ -259,31 +257,12 @@ namespace BarkodStokTakipForm
             this.txtTc.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtTc.TextChanged += new System.EventHandler(this.txtTc_TextChanged);
             // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(10, 6);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(43, 13);
-            this.label10.TabIndex = 34;
-            this.label10.Text = "Kamera";
-            // 
-            // btnStart
-            // 
-            this.btnStart.Location = new System.Drawing.Point(255, 1);
-            this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(157, 23);
-            this.btnStart.TabIndex = 33;
-            this.btnStart.Text = "KAMERA BAŞLAT";
-            this.btnStart.UseVisualStyleBackColor = true;
-            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
-            // 
             // cboCamera
             // 
             this.cboCamera.FormattingEnabled = true;
-            this.cboCamera.Location = new System.Drawing.Point(86, 3);
+            this.cboCamera.Location = new System.Drawing.Point(3, 464);
             this.cboCamera.Name = "cboCamera";
-            this.cboCamera.Size = new System.Drawing.Size(121, 21);
+            this.cboCamera.Size = new System.Drawing.Size(10, 21);
             this.cboCamera.TabIndex = 32;
             // 
             // label9
@@ -395,8 +374,6 @@ namespace BarkodStokTakipForm
             this.Controls.Add(this.Miktaritxt);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.txtBarkod);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.btnStart);
             this.Controls.Add(this.cboCamera);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -407,6 +384,7 @@ namespace BarkodStokTakipForm
             this.Text = "Barkodlu Satiş Sayfası";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.BarkodCıkısfrm_FormClosing);
             this.Load += new System.EventHandler(this.BarkodCıkısfrm_Load);
+            this.DoubleClick += new System.EventHandler(this.BarkodCıkısfrm_DoubleClick);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox2.ResumeLayout(false);
@@ -439,8 +417,6 @@ namespace BarkodStokTakipForm
         private System.Windows.Forms.TextBox txtTelefon;
         private System.Windows.Forms.TextBox txtAdSoyad;
         private System.Windows.Forms.TextBox txtTc;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Button btnStart;
         private System.Windows.Forms.ComboBox cboCamera;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label11;

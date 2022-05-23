@@ -246,5 +246,12 @@ namespace BarkodStokTakipForm
             UrunListelefrm urunListelefrm = new UrunListelefrm();
             urunListelefrm.ShowDialog();
         }
+
+        private void BarkodGirisfrm_DoubleClick(object sender, EventArgs e)
+        {
+            videoCaptureDevice = new VideoCaptureDevice(filterInfoCollection[cboCamera.SelectedIndex].MonikerString);
+            videoCaptureDevice.NewFrame += VideoCaptureDevice_NewFrame;
+            videoCaptureDevice.Start();
+        }
     }
 }

@@ -55,8 +55,6 @@ namespace BarkodStokTakipForm
             this.txtBarkodNo = new System.Windows.Forms.TextBox();
             this.cboCamera = new System.Windows.Forms.ComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.btnStart = new System.Windows.Forms.Button();
-            this.label10 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
@@ -69,9 +67,9 @@ namespace BarkodStokTakipForm
             // 
             this.pictureBox.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.pictureBox.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox.Location = new System.Drawing.Point(6, 40);
+            this.pictureBox.Location = new System.Drawing.Point(6, 4);
             this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(510, 165);
+            this.pictureBox.Size = new System.Drawing.Size(510, 201);
             this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox.TabIndex = 0;
             this.pictureBox.TabStop = false;
@@ -295,9 +293,9 @@ namespace BarkodStokTakipForm
             // cboCamera
             // 
             this.cboCamera.FormattingEnabled = true;
-            this.cboCamera.Location = new System.Drawing.Point(100, 12);
+            this.cboCamera.Location = new System.Drawing.Point(6, 492);
             this.cboCamera.Name = "cboCamera";
-            this.cboCamera.Size = new System.Drawing.Size(121, 21);
+            this.cboCamera.Size = new System.Drawing.Size(10, 21);
             this.cboCamera.TabIndex = 28;
             this.cboCamera.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
@@ -310,25 +308,6 @@ namespace BarkodStokTakipForm
             this.dataGridView1.Size = new System.Drawing.Size(723, 178);
             this.dataGridView1.TabIndex = 29;
             this.dataGridView1.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellEnter);
-            // 
-            // btnStart
-            // 
-            this.btnStart.Location = new System.Drawing.Point(269, 10);
-            this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(157, 23);
-            this.btnStart.TabIndex = 30;
-            this.btnStart.Text = "KAMERA BAŞLAT";
-            this.btnStart.UseVisualStyleBackColor = true;
-            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(24, 15);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(43, 13);
-            this.label10.TabIndex = 31;
-            this.label10.Text = "Kamera";
             // 
             // button2
             // 
@@ -369,8 +348,6 @@ namespace BarkodStokTakipForm
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.btnStart);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.cboCamera);
             this.Controls.Add(this.groupBox1);
@@ -386,6 +363,7 @@ namespace BarkodStokTakipForm
             this.Text = "Barkod İle Stok Giriş Sayfası";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.BarkodGirisfrm_FormClosing);
             this.Load += new System.EventHandler(this.BarkodGirisfrm_Load);
+            this.DoubleClick += new System.EventHandler(this.BarkodGirisfrm_DoubleClick);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -423,8 +401,6 @@ namespace BarkodStokTakipForm
         private System.Windows.Forms.TextBox txtBarkodNo;
         private System.Windows.Forms.ComboBox cboCamera;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button btnStart;
-        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
