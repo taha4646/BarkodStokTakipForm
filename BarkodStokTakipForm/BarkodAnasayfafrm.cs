@@ -23,5 +23,11 @@ namespace BarkodStokTakipForm
             barkodGirisfrm.ShowDialog();
             
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            BarkodCıkısfrm barkodCıkısfrm = new BarkodCıkısfrm();
+            barkodCıkısfrm.ShowDialog();
+        }
     }
 }

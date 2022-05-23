@@ -53,7 +53,7 @@ namespace BarkodStokTakipForm
 
             }
             UrunListele();
-            kategorigetir();
+          
         }
 
         private void btnStart_Click(object sender, EventArgs e)
@@ -106,17 +106,7 @@ namespace BarkodStokTakipForm
             dataGridView1.DataSource = ds.Tables["urun"];
             baglanti.Close();
         }
-        public void kategorigetir()
-        {
-            baglanti.Open();
-            SqlCommand komut = new SqlCommand("select *from kategoribilgileri", baglanti);
-            SqlDataReader read = komut.ExecuteReader();
-            while (read.Read())
-            {
-                comboKategori.Items.Add(read["kategori"].ToString());
-            }
-            baglanti.Close();
-        }
+       
        
         private void dataGridView1_CellEnter(object sender, DataGridViewCellEventArgs e)
         {

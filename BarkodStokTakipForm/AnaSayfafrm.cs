@@ -17,7 +17,48 @@ namespace BarkodStokTakipForm
         {
             InitializeComponent();
         }
+        //-----------------------BAĞLANTI DATA--------------------------------
+        SqlConnection baglanti = new SqlConnection("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=BarkodStokFormDb;Integrated Security=True");
+        DataSet ds = new DataSet();
+        //---------------------------TEXBOX İŞLEMLERİ------------------------------------------
+        private void txtMiktar_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                txtToplamFiyat.Text = (double.Parse(txtMiktar.Text) * double.Parse(txtSatisFiyati.Text)).ToString();
+            }
+            catch (Exception)
+            {
 
+                ;
+            }
+        }
+
+        private void txtSatisFiyati_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                txtToplamFiyat.Text = (double.Parse(txtMiktar.Text) * double.Parse(txtSatisFiyati.Text)).ToString();
+            }
+            catch (Exception)
+            {
+
+                ;
+            }
+        }
+        private void txtBarkodNo_TextChanged(object sender, EventArgs e)
+        {
+            temizle();
+            baglanti.Open();
+            SqlCommand komut = new SqlCommand("select *from urun where barkodno like '" + txtBarkodNo.Text + "'", baglanti);
+            SqlDataReader read = komut.ExecuteReader();
+            while (read.Read())
+            {
+                txtUrunAdi.Text = read["urunadi"].ToString();
+                txtSatisFiyati.Text = read["satisfiyati"].ToString();
+            }
+            baglanti.Close();
+        }
         private void groupBox1_Enter(object sender, EventArgs e)
         {
 
@@ -40,53 +81,14 @@ namespace BarkodStokTakipForm
             }
             baglanti.Close();
         }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-            MusteriEkleFrm musteriEkleFrm = new MusteriEkleFrm();
-            musteriEkleFrm.ShowDialog();
-        }
-
-        private void button6_Click(object sender, EventArgs e)
-        {
-            MüsteriListelefrm müsteriListelefrm = new MüsteriListelefrm();
-            müsteriListelefrm.Show();
-            this.Hide();
-        }
-
-        private void button7_Click(object sender, EventArgs e)
-        {
-            UrunEklefrm urunEklefrm = new UrunEklefrm();
-            urunEklefrm.ShowDialog();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Kategorifrm kategorifrm = new Kategorifrm();
-            kategorifrm.ShowDialog();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            Markafrm markafrm = new Markafrm();
-            markafrm.ShowDialog();
-        }
-
-        private void button8_Click(object sender, EventArgs e)
-        {
-            UrunListelefrm urunListelefrm = new UrunListelefrm();
-            urunListelefrm.ShowDialog();
-        }
-
-        SqlConnection baglanti = new SqlConnection("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=BarkodStokFormDb;Integrated Security=True");
-        DataSet ds = new DataSet();
+        //----------------------METHODLAR------------------------
         private void sepetlistele()
         {
             baglanti.Open();
-            SqlDataAdapter adtr = new SqlDataAdapter("select *from sepet",baglanti);
+            SqlDataAdapter adtr = new SqlDataAdapter("select *from sepet", baglanti);
             adtr.Fill(ds, "sepet");
             dataGridView1.DataSource = ds.Tables["sepet"];
-            dataGridView1.Columns[0].Visible= false;
+            dataGridView1.Columns[0].Visible = false;
             dataGridView1.Columns[1].Visible = false;
             dataGridView1.Columns[2].Visible = false;
 
@@ -94,27 +96,6 @@ namespace BarkodStokTakipForm
 
 
         }
-
-        private void AnaSayfafrm_Load(object sender, EventArgs e)
-        {
-            sepetlistele();
-            hesapla();
-        }
-
-        private void txtBarkodNo_TextChanged(object sender, EventArgs e)
-        {
-            temizle();
-            baglanti.Open();
-            SqlCommand komut = new SqlCommand("select *from urun where barkodno like '" + txtBarkodNo.Text + "'", baglanti);
-            SqlDataReader read = komut.ExecuteReader();
-            while (read.Read())
-            {
-                txtUrunAdi.Text = read["urunadi"].ToString();
-                txtSatisFiyati.Text = read["satisfiyati"].ToString();
-            }
-            baglanti.Close();
-        }
-
         private void temizle()
         {
             if (txtBarkodNo.Text == "")
@@ -141,11 +122,11 @@ namespace BarkodStokTakipForm
         {
             durum = true;
             baglanti.Open();
-            SqlCommand komut = new SqlCommand("select *from sepet",baglanti);
+            SqlCommand komut = new SqlCommand("select *from sepet", baglanti);
             SqlDataReader read = komut.ExecuteReader();
             while (read.Read())
             {
-                if (txtBarkodNo.Text==read["barkodno"].ToString())
+                if (txtBarkodNo.Text == read["barkodno"].ToString())
                 {
                     durum = false;
 
@@ -155,9 +136,72 @@ namespace BarkodStokTakipForm
             }
 
             baglanti.Close();
-        
-        }
 
+        }
+        private void hesapla()
+        {
+
+
+            try
+            {
+                baglanti.Open();
+                SqlCommand komut = new SqlCommand("select sum(toplamfiyati) from sepet", baglanti);
+                lblgeneltoplam.Text = komut.ExecuteScalar() + "TL";
+                baglanti.Close();
+
+
+            }
+            catch (Exception)
+            {
+
+                ;
+            }
+
+
+        }
+        //-----------------------BUTONLAR----------------------------------
+        private void button1_Click(object sender, EventArgs e)//KATEGORİ BUTONU
+        {
+            Kategorifrm kategorifrm = new Kategorifrm();
+            kategorifrm.ShowDialog();
+        }
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Markafrm markafrm = new Markafrm();
+            markafrm.ShowDialog();
+        }//MARKA BUTONU
+        private void button5_Click(object sender, EventArgs e)
+        {
+            MusteriEkleFrm musteriEkleFrm = new MusteriEkleFrm();
+            musteriEkleFrm.ShowDialog();
+        }//MÜŞTERİ EKLE BUTONU
+        private void button6_Click(object sender, EventArgs e)
+        {
+            MüsteriListelefrm müsteriListelefrm = new MüsteriListelefrm();
+            müsteriListelefrm.Show();
+            this.Hide();
+        }//MÜŞTERİ LİSTELE BUTONU
+        private void button7_Click(object sender, EventArgs e)
+        {
+            UrunEklefrm urunEklefrm = new UrunEklefrm();
+            urunEklefrm.ShowDialog();
+        }//URUN EKLE BUTONU      
+        private void button8_Click(object sender, EventArgs e)
+        {
+            UrunListelefrm urunListelefrm = new UrunListelefrm();
+            urunListelefrm.ShowDialog();
+        }//URUN LİSTELE BUTONU 
+        private void button9_Click(object sender, EventArgs e)
+        {
+            SatisListelefrm satisListelefrm = new SatisListelefrm();
+            satisListelefrm.ShowDialog();
+        }//SATİS LİSTELE BUTONU
+        private void btnBarkodAna_Click(object sender, EventArgs e)
+        {
+            BarkodAnasayfafrm barkodAnasayfafrm = new BarkodAnasayfafrm();
+            barkodAnasayfafrm.ShowDialog();
+
+        }//BARKODLA İŞLEM BUTONU
         private void btnEkle_Click(object sender, EventArgs e)
         {
             barkodkontrol();
@@ -207,34 +251,7 @@ namespace BarkodStokTakipForm
             }
             
 
-        }
-
-        private void txtMiktar_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                txtToplamFiyat.Text = (double.Parse(txtMiktar.Text) * double.Parse(txtSatisFiyati.Text)).ToString();
-            }
-            catch (Exception)
-            {
-
-                ;
-            }
-        }
-
-        private void txtSatisFiyati_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                txtToplamFiyat.Text = (double.Parse(txtMiktar.Text) * double.Parse(txtSatisFiyati.Text)).ToString();
-            }
-            catch (Exception)
-            {
-
-                ;
-            }
-        }
-
+        }//SEPETE EKLE BUTONU
         private void btnSil_Click(object sender, EventArgs e)
         {
             baglanti.Open();
@@ -246,8 +263,7 @@ namespace BarkodStokTakipForm
             ds.Tables["sepet"].Clear();
             sepetlistele();
             hesapla();
-        }
-
+        }//SEPETTEN SİL BUTONU
         private void btnSatisIptal_Click(object sender, EventArgs e)
         {
             baglanti.Open();
@@ -259,35 +275,7 @@ namespace BarkodStokTakipForm
             ds.Tables["sepet"].Clear();
             sepetlistele();
             hesapla();
-        }
-
-        private void button9_Click(object sender, EventArgs e)
-        {
-            SatisListelefrm satisListelefrm = new SatisListelefrm();
-            satisListelefrm.ShowDialog();
-        }
-
-        private void hesapla()
-        {
-
-            try
-            {
-                baglanti.Open();
-                SqlCommand komut = new SqlCommand("select sum(toplamfiyati) from sepet", baglanti);
-                lblgeneltoplam.Text = komut.ExecuteScalar() + "TL";
-                baglanti.Close();
-
-
-            }
-            catch (Exception)
-            {
-
-               ;
-            }
-           
-
-        }
-
+        }//SATİS İPTAL BUTONU
         private void btnSatisYap_Click(object sender, EventArgs e)
         {
            
@@ -324,13 +312,13 @@ namespace BarkodStokTakipForm
             ds.Tables["sepet"].Clear();
             sepetlistele();
             hesapla();
-        }
+        }//SATİSYAP BUTONU
 
-        private void btnBarkodAna_Click(object sender, EventArgs e)
+     
+        private void AnaSayfafrm_Load(object sender, EventArgs e)
         {
-            BarkodAnasayfafrm barkodAnasayfafrm = new BarkodAnasayfafrm();
-            barkodAnasayfafrm.ShowDialog();
-            
+            sepetlistele();
+            hesapla();
         }
     }
 }
