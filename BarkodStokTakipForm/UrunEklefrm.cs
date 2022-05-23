@@ -50,7 +50,7 @@ namespace BarkodStokTakipForm
         private void UrunEklefrm_Load(object sender, EventArgs e)
         {
             kategorigetir();
-            kategorigetir();
+            
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)

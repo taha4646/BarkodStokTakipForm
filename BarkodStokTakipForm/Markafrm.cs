@@ -73,5 +73,15 @@ namespace BarkodStokTakipForm
             }
             baglanti.Close();
         }
+
+        private void btnSil_Click(object sender, EventArgs e)
+        {
+            baglanti.Open();
+            SqlCommand komut = new SqlCommand("delete from MARKAbilgileri ", baglanti);
+            komut.ExecuteNonQuery();
+            baglanti.Close();
+
+            MessageBox.Show("Satışların Hepsi silindi");
+        }
     }
 }

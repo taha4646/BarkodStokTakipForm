@@ -34,6 +34,7 @@ namespace BarkodStokTakipForm
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txtToplamFiyat = new System.Windows.Forms.TextBox();
@@ -60,7 +61,6 @@ namespace BarkodStokTakipForm
             this.btnSatisYap = new System.Windows.Forms.Button();
             this.btnSatisIptal = new System.Windows.Forms.Button();
             this.btnSil = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
             this.Miktaritxt = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -123,6 +123,15 @@ namespace BarkodStokTakipForm
             this.label7.Size = new System.Drawing.Size(57, 13);
             this.label7.TabIndex = 8;
             this.label7.Text = "Satış Fiyatı";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(6, 109);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(36, 13);
+            this.label6.TabIndex = 7;
+            this.label6.Text = "Miktar";
             // 
             // label5
             // 
@@ -230,6 +239,7 @@ namespace BarkodStokTakipForm
             this.txtTelefon.Name = "txtTelefon";
             this.txtTelefon.Size = new System.Drawing.Size(125, 20);
             this.txtTelefon.TabIndex = 2;
+            this.txtTelefon.Text = "YOK";
             // 
             // txtAdSoyad
             // 
@@ -237,6 +247,7 @@ namespace BarkodStokTakipForm
             this.txtAdSoyad.Name = "txtAdSoyad";
             this.txtAdSoyad.Size = new System.Drawing.Size(125, 20);
             this.txtAdSoyad.TabIndex = 1;
+            this.txtAdSoyad.Text = "PERAKENDE SATIŞ";
             // 
             // txtTc
             // 
@@ -244,6 +255,8 @@ namespace BarkodStokTakipForm
             this.txtTc.Name = "txtTc";
             this.txtTc.Size = new System.Drawing.Size(125, 20);
             this.txtTc.TabIndex = 0;
+            this.txtTc.Text = "1";
+            this.txtTc.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtTc.TextChanged += new System.EventHandler(this.txtTc_TextChanged);
             // 
             // label10
@@ -301,7 +314,7 @@ namespace BarkodStokTakipForm
             // 
             // btnEkle
             // 
-            this.btnEkle.Location = new System.Drawing.Point(45, 447);
+            this.btnEkle.Location = new System.Drawing.Point(351, 248);
             this.btnEkle.Name = "btnEkle";
             this.btnEkle.Size = new System.Drawing.Size(75, 23);
             this.btnEkle.TabIndex = 42;
@@ -329,9 +342,9 @@ namespace BarkodStokTakipForm
             // 
             // btnSatisYap
             // 
-            this.btnSatisYap.Location = new System.Drawing.Point(698, 384);
+            this.btnSatisYap.Location = new System.Drawing.Point(573, 388);
             this.btnSatisYap.Name = "btnSatisYap";
-            this.btnSatisYap.Size = new System.Drawing.Size(75, 23);
+            this.btnSatisYap.Size = new System.Drawing.Size(75, 26);
             this.btnSatisYap.TabIndex = 39;
             this.btnSatisYap.Text = "SATIŞ YAP";
             this.btnSatisYap.UseVisualStyleBackColor = true;
@@ -339,7 +352,7 @@ namespace BarkodStokTakipForm
             // 
             // btnSatisIptal
             // 
-            this.btnSatisIptal.Location = new System.Drawing.Point(273, 445);
+            this.btnSatisIptal.Location = new System.Drawing.Point(678, 388);
             this.btnSatisIptal.Name = "btnSatisIptal";
             this.btnSatisIptal.Size = new System.Drawing.Size(85, 26);
             this.btnSatisIptal.TabIndex = 44;
@@ -349,22 +362,13 @@ namespace BarkodStokTakipForm
             // 
             // btnSil
             // 
-            this.btnSil.Location = new System.Drawing.Point(167, 445);
+            this.btnSil.Location = new System.Drawing.Point(432, 248);
             this.btnSil.Name = "btnSil";
             this.btnSil.Size = new System.Drawing.Size(85, 23);
             this.btnSil.TabIndex = 43;
             this.btnSil.Text = "SİL";
             this.btnSil.UseVisualStyleBackColor = true;
             this.btnSil.Click += new System.EventHandler(this.btnSil_Click);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 109);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(36, 13);
-            this.label6.TabIndex = 7;
-            this.label6.Text = "Miktar";
             // 
             // Miktaritxt
             // 

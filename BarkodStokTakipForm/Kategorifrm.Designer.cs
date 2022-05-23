@@ -32,6 +32,7 @@ namespace BarkodStokTakipForm
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.btnSil = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // textBox1
@@ -60,12 +61,23 @@ namespace BarkodStokTakipForm
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // btnSil
+            // 
+            this.btnSil.Location = new System.Drawing.Point(286, 12);
+            this.btnSil.Name = "btnSil";
+            this.btnSil.Size = new System.Drawing.Size(10, 13);
+            this.btnSil.TabIndex = 6;
+            this.btnSil.Text = "Kayıt Sil";
+            this.btnSil.UseVisualStyleBackColor = true;
+            this.btnSil.Click += new System.EventHandler(this.btnSil_Click);
+            // 
             // Kategorifrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(308, 148);
+            this.Controls.Add(this.btnSil);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
@@ -82,5 +94,6 @@ namespace BarkodStokTakipForm
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnSil;
     }
 }

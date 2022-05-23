@@ -31,8 +31,33 @@ namespace BarkodStokTakipForm
 
 
         }
+        private void btnSil_Click(object sender, EventArgs e)
+        {
+            baglanti.Open();
+            SqlCommand komut = new SqlCommand("delete from satis where barkodno='" + dataGridView1.CurrentRow.Cells["barkodno"].Value.ToString() + "'", baglanti);
+            komut.ExecuteNonQuery();
+            baglanti.Close();
+
+            MessageBox.Show("ürün satıstan silindi");
+            ds.Tables["satis"].Clear();
+            satislistele();
+           
+        }// SİL BUTONU
+        
         private void SatisListelefrm_Load(object sender, EventArgs e)
         {
+            satislistele();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            baglanti.Open();
+            SqlCommand komut = new SqlCommand("delete from satis", baglanti);
+            komut.ExecuteNonQuery();
+            baglanti.Close();
+
+            MessageBox.Show("Satışların Hepsi silindi");
+            ds.Tables["satis"].Clear();
             satislistele();
         }
     }

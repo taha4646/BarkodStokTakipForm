@@ -86,6 +86,7 @@ namespace BarkodStokTakipForm
         {
             if (txtTc.Text == "")
             {
+               
                 txtAdSoyad.Text = "";
                 txtTelefon.Text = "";
             }
